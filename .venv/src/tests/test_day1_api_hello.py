@@ -12,7 +12,6 @@ SCHEMA = ROOT / "schemas" / "day1_summary.schema.json"
 
 
 def test_day1_artifacts_and_schema():
-    # 1) Запускаем скрипт (offline если response.json уже есть, иначе online)
     cmd = ["python", "src/day1_api_hello.py"]
     if (ART_DIR / "response.json").exists():
         cmd.append("--offline")
