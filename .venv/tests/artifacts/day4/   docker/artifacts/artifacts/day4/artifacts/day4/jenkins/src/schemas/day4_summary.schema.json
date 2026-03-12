@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": ["schema_version", "generated_utc", "student", "checks", "evidence_sha256", "validation_passed", "run"],
+  "properties": {
+    "schema_version": { "type": "string", "const": "4.1" },
+    "generated_utc": { "type": "string" },
+
+    "student": {
+      "type": "object",
+      "required": ["token", "token_hash8", "name", "group"],
+      "properties": {
+        "token": { "type": "string" },
+        "token_hash8": { "type": "string", "pattern": "^[a-f0-9]{8}$" },
+        "name": { "type": "string" },
+        "group": { "type": "string" }
+      }
+    },
+
+    "checks": {
+      "type": "object",
+      "required": ["docker_token_in_page", "docker_tokenproof", "ansible_port_8081", "jenkins_pipeline_has_stages", "security_db_has_tables"],
+      "properties": {
+        "docker_token_in_page": { "type": "boolean" },
+        "docker_tokenproof": { "type": "boolean" },
+        "ansible_port_8081": { "type": "boolean" },
+        "jenkins_pipeline_has_stages": { "type": "boolean" },
+        "security_db_has_tables": { "type": "boolean" }
+      }
+    },
+
+    "evidence_sha256": { "type": "object" },
+    "validation_passed": { "type": "boolean" },
+
+    "run": {
+      "type": "object",
+      "required": ["python", "platform"],
+      "properties": {
+        "python": { "type": "string" },
+        "platform": { "type": "string" }
+      }
+    }
+  }
+}
