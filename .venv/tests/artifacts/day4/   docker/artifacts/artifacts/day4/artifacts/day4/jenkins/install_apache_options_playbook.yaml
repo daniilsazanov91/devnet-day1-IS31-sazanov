@@ -1,0 +1,20 @@
+- hosts: webservers
+  become: yes
+
+  tasks:
+
+  - name: install apache
+    apt:
+      name: apache2
+      state: present
+
+  - name: change port
+    lineinfile:
+      path: /etc/apache2/ports.conf
+      regexp: '^Listen'
+      line: 'Listen 8081'
+
+  - name: restart apache
+    service:
+      name: apache2
+      state: restarted
