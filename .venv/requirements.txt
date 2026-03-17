@@ -1,6 +1,0 @@
-requests
-pytest
-jsonschema
-PyYAML
-jsonschema
-pytest

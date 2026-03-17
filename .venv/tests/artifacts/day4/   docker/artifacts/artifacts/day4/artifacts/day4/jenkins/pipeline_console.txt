@@ -1,4 +1,0 @@
-Preparation
-Build
-Results
-Finished: SUCCESS
